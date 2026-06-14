@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useRef, useMemo } from 'react'
+import { Suspense, useRef, useMemo, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { OrbitControls, Float, Sphere, Box, Torus, Stars, Environment, MeshDistortMaterial, BakeShadows, Preload } from '@react-three/drei'
 import * as THREE from 'three'
@@ -149,24 +149,24 @@ function EnergyBeam() {
 }
 
 // Grid floor
-function ArenaFloor() {
+function ArenaFloor({ isLight }: { isLight: boolean }) {
   return (
     <>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.2, 0]}>
         <planeGeometry args={[20, 20, 30, 30]} />
         <meshStandardMaterial
-          color="#0B0B0F"
+          color={isLight ? '#E5DFD9' : '#0B0B0F'}
           wireframe
           transparent
-          opacity={0.15}
+          opacity={isLight ? 0.4 : 0.15}
         />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1.21, 0]}>
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial
-          color="#0D0D14"
-          metalness={0.8}
-          roughness={0.3}
+          color={isLight ? '#F5F1EC' : '#0D0D14'}
+          metalness={isLight ? 0.2 : 0.8}
+          roughness={isLight ? 0.8 : 0.3}
         />
       </mesh>
     </>
@@ -218,6 +218,25 @@ interface ArenaSceneProps {
 }
 
 export default function ArenaScene({ agentAActive = false, agentBActive = false }: ArenaSceneProps) {
+  const [isLight, setIsLight] = useState(false)
+
+  useEffect(() => {
+    // Check initial
+    setIsLight(document.documentElement.classList.contains('light'))
+    
+    // Listen for changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          setIsLight(document.documentElement.classList.contains('light'))
+        }
+      })
+    })
+    
+    observer.observe(document.documentElement, { attributes: true })
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <Canvas
       dpr={[1, 2]}
@@ -226,15 +245,15 @@ export default function ArenaScene({ agentAActive = false, agentBActive = false 
       gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       style={{ background: 'transparent' }}
     >
-      <fog attach="fog" args={['#0B0B0F', 10, 20]} />
+      <fog attach="fog" args={[isLight ? '#FFF8F2' : '#0B0B0F', 10, 20]} />
 
-      <ambientLight intensity={0.15} />
-      <directionalLight position={[5, 5, 5]} intensity={0.3} color="#FF9D5C" />
-      <directionalLight position={[-5, 5, 5]} intensity={0.2} color="#2DD4BF" />
+      <ambientLight intensity={isLight ? 0.6 : 0.15} />
+      <directionalLight position={[5, 5, 5]} intensity={isLight ? 0.5 : 0.3} color="#FF9D5C" />
+      <directionalLight position={[-5, 5, 5]} intensity={isLight ? 0.4 : 0.2} color="#2DD4BF" />
 
       <Suspense fallback={null}>
         <CameraRig />
-        <ArenaFloor />
+        <ArenaFloor isLight={isLight} />
         <Podium position={[-2.8, 0, 0]} color="#FF6B35" speaking={agentAActive} />
         <Podium position={[2.8, 0, 0]} color="#2DD4BF" speaking={agentBActive} />
         <EnergyBeam />
