@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-text-muted text-sm flex items-center gap-1">
-            Made with <Heart className="w-3 h-3 text-primary inline" /> by the Arena team
+            Design and developed by Abhranil Singha Roy.
           </p>
           <div className="flex items-center gap-3">
             <motion.a
