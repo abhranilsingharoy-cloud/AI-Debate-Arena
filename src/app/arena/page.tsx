@@ -11,10 +11,9 @@ import TypewriterText from '@/components/ui/TypewriterText'
 import ParticleBurst from '@/components/ui/Particles'
 import { AGENTS, TOPICS, DEBATE_FORMATS, Agent, DebateFormat } from '@/lib/data'
 import { cn, randomInt } from '@/lib/utils'
-import {
-  RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer,
-  BarChart, Bar, XAxis, YAxis, Tooltip, Cell
-} from 'recharts'
+import dynamic from 'next/dynamic'
+
+const DebateRadarChart = dynamic(() => import('@/components/ui/DebateRadarChart'), { ssr: false })
 
 type DebatePhase = 'setup' | 'debating' | 'voting' | 'results'
 
@@ -605,14 +604,7 @@ export default function ArenaPage() {
                         <div className="text-2xl font-heading font-bold gradient-text-orange">{winnerAgent.name}</div>
                         <div className="text-sm text-text-muted">{winnerAgent.title}</div>
                         <div className="mt-4">
-                          <ResponsiveContainer width="100%" height={180}>
-                            <RadarChart data={radarData}>
-                              <PolarGrid stroke="rgba(255,255,255,0.1)" />
-                              <PolarAngleAxis dataKey="subject" tick={{ fill: '#9A958E', fontSize: 10 }} />
-                              <Radar name={agentA.name} dataKey="A" stroke="#FF6B35" fill="#FF6B35" fillOpacity={0.2} />
-                              <Radar name={agentB.name} dataKey="B" stroke="#2DD4BF" fill="#2DD4BF" fillOpacity={0.2} />
-                            </RadarChart>
-                          </ResponsiveContainer>
+                          <DebateRadarChart data={radarData} agentAName={agentA.name} agentBName={agentB.name} />
                         </div>
                       </motion.div>
                     )}

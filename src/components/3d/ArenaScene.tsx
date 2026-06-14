@@ -2,7 +2,7 @@
 
 import { Suspense, useRef, useMemo } from 'react'
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, Float, Sphere, Box, Torus, Stars, Environment, MeshDistortMaterial } from '@react-three/drei'
+import { OrbitControls, Float, Sphere, Box, Torus, Stars, Environment, MeshDistortMaterial, BakeShadows, Preload } from '@react-three/drei'
 import * as THREE from 'three'
 
 // Podium for each debater
@@ -220,9 +220,10 @@ interface ArenaSceneProps {
 export default function ArenaScene({ agentAActive = false, agentBActive = false }: ArenaSceneProps) {
   return (
     <Canvas
+      dpr={[1, 2]}
       camera={{ position: [0, 1.5, 5.5], fov: 55 }}
       shadows
-      gl={{ antialias: true, alpha: true }}
+      gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       style={{ background: 'transparent' }}
     >
       <fog attach="fog" args={['#0B0B0F', 10, 20]} />
@@ -239,6 +240,8 @@ export default function ArenaScene({ agentAActive = false, agentBActive = false 
         <EnergyBeam />
         <AmbientSparkles />
         <Stars radius={30} depth={20} count={500} factor={2} saturation={0.5} fade speed={0.3} />
+        <BakeShadows />
+        <Preload all />
       </Suspense>
     </Canvas>
   )
