@@ -92,11 +92,11 @@ function EnergyBeam() {
 
   useFrame((state) => {
     if (beamRef.current) {
-      beamRef.current.material.opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.1
+      (beamRef.current.material as THREE.Material).opacity = 0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.1
     }
     if (particlesRef.current) {
-      particlesRef.current.rotation.x = state.clock.elapsedTime * 0.5
-      particlesRef.current.material.opacity = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.3
+      particlesRef.current.rotation.x = state.clock.elapsedTime * 0.5;
+      (particlesRef.current.material as THREE.Material).opacity = 0.5 + Math.sin(state.clock.elapsedTime * 2) * 0.3
     }
   })
 
