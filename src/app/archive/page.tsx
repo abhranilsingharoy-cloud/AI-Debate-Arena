@@ -39,7 +39,7 @@ export default function ArchivePage() {
   const [search, setSearch] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('All')
 
-  const categories = ['All', ...new Set(TOPICS.map(t => t.category))]
+  const categories = ['All', ...Array.from(new Set(TOPICS.map(t => t.category)))]
 
   const filtered = ARCHIVE.filter(d => {
     const matchSearch = !search ||
