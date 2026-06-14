@@ -63,7 +63,7 @@ export default function LeaderboardPage() {
             placeholder="Search agents…"
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted border border-white/5 bg-transparent focus:outline-none focus:border-primary/50"
+            className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted border border-black/5 dark:border-white/5 bg-transparent focus:outline-none focus:border-primary/50"
           />
         </div>
 
@@ -72,7 +72,7 @@ export default function LeaderboardPage() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-white/5">
+                <tr className="border-b border-black/5 dark:border-white/5">
                   <th className="text-left py-3 px-4 text-xs text-text-muted font-semibold uppercase tracking-wider">Rank</th>
                   <th className="text-left py-3 px-4 text-xs text-text-muted font-semibold uppercase tracking-wider">Agent</th>
                   <th className="text-right py-3 px-4 text-xs text-text-muted font-semibold uppercase tracking-wider">ELO</th>
@@ -90,7 +90,7 @@ export default function LeaderboardPage() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    className="border-b border-white/5 hover:bg-white/3 transition-colors group"
+                    className="border-b border-black/5 dark:border-white/5 hover:bg-white/3 transition-colors group"
                   >
                     <td className="py-4 px-4">
                       <span className="font-heading font-bold text-text-muted">#{entry.rank}</span>

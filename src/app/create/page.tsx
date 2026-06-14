@@ -83,7 +83,7 @@ export default function CreatePage() {
               <span className={cn('text-sm font-medium capitalize hidden sm:block', s === step ? 'text-primary' : 'text-text-muted')}>
                 {s}
               </span>
-              {i < steps.length - 1 && <div className="w-8 h-px bg-white/10 hidden sm:block" />}
+              {i < steps.length - 1 && <div className="w-8 h-px bg-black/10 dark:bg-white/10 hidden sm:block" />}
             </div>
           ))}
         </div>
@@ -103,7 +103,7 @@ export default function CreatePage() {
                         'transition-all duration-200 cursor-pointer',
                         selectedTopic?.id === topic.id
                           ? 'neon-border-orange bg-primary/10'
-                          : 'hover:border-white/20'
+                          : 'hover:border-black/20 dark:hover:border-white/20'
                       )}
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -151,7 +151,7 @@ export default function CreatePage() {
                           padding="sm"
                           className={cn(
                             'transition-all cursor-pointer flex items-center gap-3',
-                            selectedAgentA?.id === agent.id ? 'neon-border-orange bg-primary/10' : 'hover:border-white/20',
+                            selectedAgentA?.id === agent.id ? 'neon-border-orange bg-primary/10' : 'hover:border-black/20 dark:hover:border-white/20',
                             selectedAgentB?.id === agent.id ? 'opacity-30 cursor-not-allowed' : ''
                           )}
                         >
@@ -189,7 +189,7 @@ export default function CreatePage() {
                           padding="sm"
                           className={cn(
                             'transition-all cursor-pointer flex items-center gap-3',
-                            selectedAgentB?.id === agent.id ? 'neon-border-teal bg-agentB/10' : 'hover:border-white/20',
+                            selectedAgentB?.id === agent.id ? 'neon-border-teal bg-agentB/10' : 'hover:border-black/20 dark:hover:border-white/20',
                             selectedAgentA?.id === agent.id ? 'opacity-30 cursor-not-allowed' : ''
                           )}
                         >
@@ -221,7 +221,7 @@ export default function CreatePage() {
                       padding="md"
                       className={cn(
                         'cursor-pointer transition-all h-full',
-                        selectedFormat?.id === format.id ? 'neon-border-orange bg-primary/10' : 'hover:border-white/20'
+                        selectedFormat?.id === format.id ? 'neon-border-orange bg-primary/10' : 'hover:border-black/20 dark:hover:border-white/20'
                       )}
                     >
                       <div className="flex items-start gap-3">
@@ -238,7 +238,7 @@ export default function CreatePage() {
                           </div>
                           <div className="mt-2 flex flex-wrap gap-1">
                             {format.structure.map(s => (
-                              <span key={s} className="text-xs bg-white/5 rounded-full px-2 py-0.5 text-text-muted">{s}</span>
+                              <span key={s} className="text-xs bg-black/5 dark:bg-white/5 rounded-full px-2 py-0.5 text-text-muted">{s}</span>
                             ))}
                           </div>
                         </div>

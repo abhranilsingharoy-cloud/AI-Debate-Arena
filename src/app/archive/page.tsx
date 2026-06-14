@@ -68,13 +68,13 @@ export default function ArchivePage() {
               placeholder="Search debates, topics, or agents…"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted border border-white/5 bg-transparent focus:outline-none"
+              className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted border border-black/5 dark:border-white/5 bg-transparent focus:outline-none"
             />
           </div>
           <select
             value={categoryFilter}
             onChange={e => setCategoryFilter(e.target.value)}
-            className="glass rounded-2xl px-4 py-3 text-sm text-text-primary border border-white/5 bg-transparent focus:outline-none cursor-pointer"
+            className="glass rounded-2xl px-4 py-3 text-sm text-text-primary border border-black/5 dark:border-white/5 bg-transparent focus:outline-none cursor-pointer"
           >
             {categories.map(c => (
               <option key={c} value={c} className="bg-bg-panel">{c}</option>

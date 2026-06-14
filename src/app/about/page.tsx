@@ -50,7 +50,7 @@ export default function AboutPage() {
                         </div>
                         <div className="mt-2 flex flex-wrap gap-1">
                           {format.structure.map(s => (
-                            <span key={s} className="text-xs bg-white/5 rounded-full px-2 py-0.5 text-text-muted">{s}</span>
+                            <span key={s} className="text-xs bg-black/5 dark:bg-white/5 rounded-full px-2 py-0.5 text-text-muted">{s}</span>
                           ))}
                         </div>
                       </div>

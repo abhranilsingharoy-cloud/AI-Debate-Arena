@@ -144,7 +144,7 @@ function JudgeScorecard({ judge, scores, idx }: { judge: typeof JUDGES[0], score
             <div className="text-xs text-text-muted">Agent B</div>
           </div>
         </div>
-        <p className="text-xs text-text-muted italic leading-relaxed border-t border-white/5 pt-2">
+        <p className="text-xs text-text-muted italic leading-relaxed border-t border-black/5 dark:border-white/5 pt-2">
           "{scores.rationale}"
         </p>
       </GlassCard>
@@ -321,7 +321,7 @@ export default function ArenaPage() {
       <ParticleBurst active={showParticles} />
 
       {/* Topic header */}
-      <div className="glass border-b border-white/5 px-4 py-4 sticky top-16 z-30">
+      <div className="glass border-b border-black/5 dark:border-white/5 px-4 py-4 sticky top-16 z-30">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 flex-wrap">
           <div>
             <span className={`badge-orange text-xs`}>{topic.category} · {format.name}</span>
@@ -339,7 +339,7 @@ export default function ArenaPage() {
                   key={i}
                   className={cn(
                     'w-6 h-1.5 rounded-full transition-all',
-                    i < Math.ceil(turns.length / 2) ? 'bg-primary' : 'bg-white/10'
+                    i < Math.ceil(turns.length / 2) ? 'bg-primary' : 'bg-black/10 dark:bg-white/10'
                   )}
                 />
               ))}
@@ -395,7 +395,7 @@ export default function ArenaPage() {
 
             {/* Transcript */}
             <GlassCard padding="none" className="overflow-hidden">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/5">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-black/5 dark:border-white/5">
                 <span className="font-heading font-semibold text-sm">Live Transcript</span>
                 <div className="flex items-center gap-2">
                   {isGenerating && <Loader2 className="w-3 h-3 animate-spin text-primary" />}
@@ -464,7 +464,7 @@ export default function ArenaPage() {
               </div>
 
               {/* Controls */}
-              <div className="px-4 py-3 border-t border-white/5 flex items-center justify-between">
+              <div className="px-4 py-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setIsPlaying(!isPlaying)}

@@ -79,7 +79,7 @@ export default function AgentsPage() {
                 {/* Specialties */}
                 <div className="flex flex-wrap gap-1 mb-4">
                   {agent.specialty.map(s => (
-                    <span key={s} className="text-xs bg-white/5 px-2 py-0.5 rounded-full text-text-muted">{s}</span>
+                    <span key={s} className="text-xs bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full text-text-muted">{s}</span>
                   ))}
                 </div>
 

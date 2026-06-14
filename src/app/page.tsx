@@ -98,7 +98,7 @@ function HowItWorks() {
               viewport={{ once: true }}
             >
               <GlassCard padding="lg" hover className="h-full relative overflow-hidden">
-                <div className="absolute top-4 right-4 font-heading font-bold text-5xl opacity-5 text-white">{step.n}</div>
+                <div className="absolute top-4 right-4 font-heading font-bold text-5xl opacity-5 text-black dark:text-white">{step.n}</div>
                 <div className="text-4xl mb-4">{step.icon}</div>
                 <div
                   className="text-xs font-semibold tracking-widest uppercase mb-2"
@@ -218,7 +218,7 @@ function TrendingTopics() {
                   </div>
                   <div className="mt-3 flex items-center gap-2">
                     {topic.tags.map(tag => (
-                      <span key={tag} className="text-xs text-text-muted bg-white/5 px-2 py-0.5 rounded-full">#{tag}</span>
+                      <span key={tag} className="text-xs text-text-muted bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full">#{tag}</span>
                     ))}
                   </div>
                 </GlassCard>

@@ -15,7 +15,7 @@ interface ClayButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants = {
   primary: 'bg-gradient-to-br from-primary-light via-primary to-primary-dark text-white border border-primary/30',
-  secondary: 'bg-bg-card text-text-primary border border-black/10 dark:border-white/10',
+  secondary: 'bg-bg-card text-text-primary border border-black/10 dark:border-black/10 dark:border-white/10',
   ghost: 'bg-transparent text-primary border border-primary/30 hover:bg-primary/10',
   danger: 'bg-gradient-to-br from-red-400 to-danger text-white border border-danger/30',
   success: 'bg-gradient-to-br from-green-400 to-success text-white border border-success/30',

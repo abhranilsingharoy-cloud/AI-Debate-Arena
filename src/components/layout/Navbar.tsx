@@ -42,7 +42,7 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className={cn(
           'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
-          scrolled ? 'glass border-b border-white/5' : 'bg-transparent'
+          scrolled ? 'glass border-b border-black/5 dark:border-white/5' : 'bg-transparent'
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
@@ -74,7 +74,7 @@ export default function Navbar() {
                       'flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-medium transition-all duration-200',
                       active
                         ? 'bg-primary/15 text-primary'
-                        : 'text-text-muted hover:text-text-primary hover:bg-white/5'
+                        : 'text-text-muted hover:text-text-primary hover:bg-black/5 dark:bg-white/5'
                     )}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -141,7 +141,7 @@ export default function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="md:hidden overflow-hidden glass border-t border-white/5"
+              className="md:hidden overflow-hidden glass border-t border-black/5 dark:border-white/5"
             >
               <div className="px-4 py-4 flex flex-col gap-1">
                 {NAV_LINKS.map(({ href, label, icon: Icon }) => {
@@ -150,7 +150,7 @@ export default function Navbar() {
                     <Link key={href} href={href} onClick={() => setMobileOpen(false)}>
                       <div className={cn(
                         'flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors',
-                        active ? 'bg-primary/15 text-primary' : 'text-text-muted hover:text-text-primary hover:bg-white/5'
+                        active ? 'bg-primary/15 text-primary' : 'text-text-muted hover:text-text-primary hover:bg-black/5 dark:bg-white/5'
                       )}>
                         <Icon className="w-4 h-4" />
                         {label}

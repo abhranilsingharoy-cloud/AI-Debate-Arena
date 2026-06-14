@@ -59,7 +59,7 @@ function TopicCard({ topic, index }: { topic: Topic; index: number }) {
           <div className="flex items-center justify-between">
             <div className="flex gap-1 flex-wrap">
               {topic.tags.slice(0, 2).map(tag => (
-                <span key={tag} className="text-xs text-text-muted bg-white/5 px-2 py-0.5 rounded-full">
+                <span key={tag} className="text-xs text-text-muted bg-black/5 dark:bg-white/5 px-2 py-0.5 rounded-full">
                   #{tag}
                 </span>
               ))}
@@ -123,7 +123,7 @@ export default function TopicsPage() {
               placeholder="Search topics, categories, tags…"
               value={search}
               onChange={e => setSearch(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 border border-white/5 bg-transparent transition-colors"
+              className="w-full pl-10 pr-4 py-3 glass rounded-2xl text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/50 border border-black/5 dark:border-white/5 bg-transparent transition-colors"
             />
           </div>
           <ClayButton
@@ -136,7 +136,7 @@ export default function TopicsPage() {
           <select
             value={sortBy}
             onChange={e => setSortBy(e.target.value as any)}
-            className="glass rounded-2xl px-4 py-3 text-sm text-text-primary border border-white/5 bg-transparent focus:outline-none focus:border-primary/50 cursor-pointer"
+            className="glass rounded-2xl px-4 py-3 text-sm text-text-primary border border-black/5 dark:border-white/5 bg-transparent focus:outline-none focus:border-primary/50 cursor-pointer"
           >
             <option value="trending" className="bg-bg-panel">🔥 Trending</option>
             <option value="debates" className="bg-bg-panel">📊 Most Debated</option>
