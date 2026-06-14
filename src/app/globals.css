@@ -23,6 +23,14 @@
   --font-body: 'Inter', sans-serif;
 }
 
+:root.light {
+  --color-bg-dark: #FFF8F2;
+  --color-bg-panel: #F5F1EC;
+  --color-bg-card: #FFFFFF;
+  --color-text-primary: #1A1714;
+  --color-text-muted: #736E67;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -45,8 +53,8 @@ body {
 
 /* Light mode overrides */
 .light body {
-  background-color: var(--color-bg-light);
-  color: #1A1714;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-primary);
 }
 
 /* ============ GLASS MORPHISM ============ */
@@ -63,6 +71,12 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 107, 53, 0.15);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .glass-orange {
@@ -232,7 +246,7 @@ body {
     radial-gradient(ellipse at 20% 50%, rgba(255, 107, 53, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 50%, rgba(45, 212, 191, 0.08) 0%, transparent 50%),
     radial-gradient(ellipse at 50% 100%, rgba(255, 107, 53, 0.06) 0%, transparent 50%),
-    #0B0B0F;
+    var(--color-bg-dark);
 }
 
 /* ============ TRANSITION UTILITIES ============ */

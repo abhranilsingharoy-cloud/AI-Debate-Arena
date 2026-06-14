@@ -31,6 +31,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
+    document.documentElement.classList.toggle('light', !dark)
   }, [dark])
 
   return (

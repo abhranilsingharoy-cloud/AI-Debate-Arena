@@ -1,172 +1,122 @@
-# AI Debate Arena 🔥
+# ⚔️ AI Debate Arena
 
-A production-ready, multi-page web platform where **two AI agents debate any topic in real time** and **you are the judge**.
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Three.js-R3F-purple?style=for-the-badge&logo=threedotjs" alt="Three.js" />
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Framer_Motion-11-ff0055?style=for-the-badge&logo=framer" alt="Framer Motion" />
+</div>
 
-## ✨ Features
+<br/>
 
-- 🎯 **Topic Browser** — 16+ curated debate topics across 8 categories with search & filtering
-- 🤖 **6 AI Personas** — The Logician, The Provocateur, The Diplomat, The Skeptic, The Historian, The Futurist
-- 🎭 **4 Debate Formats** — Oxford-Style, Rapid Fire, Lincoln-Douglas, Casual Roast
-- 🌊 **Live Streaming** — Typewriter-effect debate turns with glowing active speaker indicators
-- ⚖️ **Voting System** — 4-category sliders (Logic, Persuasion, Rebuttal, Clarity) per debater
-- 👨‍⚖️ **AI Judge Panel** — 3 specialized AI judges with scorecards and rationale
-- 📊 **Recharts Visualization** — Radar and bar charts for score breakdowns
-- 🏆 **ELO Leaderboard** — Rankings with win rates, form streaks, and trend indicators
-- 🎉 **Winner Celebration** — Particle burst animation on winner reveal
-- 🌐 **3D Hero Arena** — React Three Fiber scene with holographic podiums and energy beam
-- 🌑 **Dark/Light Mode** — Warm orange palette adapts to both themes
-- 📱 **Fully Responsive** — Mobile, tablet, desktop, large desktop
+> **Where AI Titans Clash. You are the Judge.**
+> AI Debate Arena is an immersive, 3D, multi-page platform where users can configure, watch, and judge real-time turn-based debates between advanced AI personas.
+
+---
+
+## 🌟 Features
+
+- **🎮 3D Real-Time Arena:** Built with React Three Fiber, featuring holographic podiums, dynamic lighting, energy beams, and floating particle physics.
+- **⚡ Live AI Streaming:** Turn-by-turn debate generation simulating a real-time LLM typing effect (Typewriter text reveals).
+- **🗣️ Advanced AI Personas:** Choose from distinct AI fighters, each with unique system prompts, ELO ratings, and debate styles (e.g., *The Logician*, *The Pragmatist*, *The Visionary*).
+- **⚖️ Interactive Judging System:** Cast votes in real time using interactive sliders (Logic, Persuasion, Rebuttal, Clarity) and compare your verdict against a simulated panel of AI Judges.
+- **📊 Real-Time Analytics:** Visualize debate outcomes and agent performance using Recharts-powered radar charts and form trackers.
+- **🎨 Modern "Orange Arena" Aesthetics:** Premium dark mode UI, complete with glassmorphism, claymorphism, neon glows, and micro-animations via Framer Motion.
+- **🌓 Dynamic Light/Dark Mode:** Full support for seamless theme switching.
+- **📱 Fully Responsive:** Carefully crafted layouts that scale perfectly from desktop ultra-wide monitors down to mobile screens.
+
+---
+
+## 🏗️ Architecture & Tech Stack
+
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router, Server & Client Components)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Vanilla CSS (for advanced CSS variables and custom effects)
+- **3D Engine:** [Three.js](https://threejs.org/) + [@react-three/fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction) + [@react-three/drei](https://github.com/pmndrs/drei)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Data Visualization:** [Recharts](https://recharts.org/)
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+
-- npm or yarn
+- Node.js 18+ or later
+- npm, yarn, pnpm, or bun
 
 ### Installation
 
-```bash
-git clone https://github.com/abhranilsingharoy-cloud/AI-Debate-Arena
-cd AI-Debate-Arena
-npm install
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/AI-Debate-Arena.git
+   cd AI-Debate-Arena
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Visit the app:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📂 Project Structure
+
+```
+.
+├── src/
+│   ├── app/                    # Next.js 14 App Router pages and layouts
+│   │   ├── api/                # Mock API routes for debate streaming
+│   │   ├── arena/              # The core debate engine page
+│   │   ├── create/             # 4-step wizard to initialize a debate
+│   │   ├── leaderboard/        # Global agent rankings
+│   │   ├── topics/             # Debate topic browser
+│   │   └── globals.css         # Core CSS tokens, glass/clay utilities
+│   ├── components/             
+│   │   ├── 3d/                 # React Three Fiber Canvas & Components
+│   │   ├── layout/             # Navbar, Footer
+│   │   └── ui/                 # Reusable UI (GlassCard, Buttons, Avatars)
+│   ├── lib/
+│   │   ├── data.ts             # Mock data (Agents, Topics, Stats)
+│   │   └── utils.ts            # Utility functions (cn, number formatters)
 ```
 
-### Environment Variables
+---
 
-Create a `.env.local` file:
+## 🧠 How The Debate Engine Works
 
-```env
-# LLM API (optional — mock responses work without this)
-OPENAI_API_KEY=your_openai_key_here
-# OR
-GOOGLE_AI_API_KEY=your_gemini_key_here
+1. **Configuration (`/create`)**: The user selects a Topic, two opposing AI Agents, and a Debate Format (e.g., Oxford-style, Rapid Fire).
+2. **Initialization (`/arena`)**: The UI loads the 3D scene and prepares the live transcript console.
+3. **Turn Generation (`/api/debate/generate`)**: A mock API handles turn-by-turn generation based on the selected agents' personalities and the current round context.
+4. **Judging**: After all rounds complete, the user is prompted to vote using 4 distinct criteria.
+5. **Results**: An AI Judge panel processes the debate and user scores to declare a winner, visualizing the final decision on a responsive Radar chart.
 
-# Database (optional — in-memory mocks work without this)
-DATABASE_URL=postgresql://...
-
-# Auth (optional)
-NEXTAUTH_SECRET=your_secret
-```
-
-### Running Locally
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Building for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 🗺️ Site Map
-
-| Route | Page |
-|-------|------|
-| `/` | Home / Landing |
-| `/arena` | Debate Arena (core experience) |
-| `/topics` | Browse Topics |
-| `/create` | Create Custom Debate |
-| `/agents` | Agent Roster |
-| `/agents/[id]` | Agent Profile |
-| `/leaderboard` | ELO Leaderboard |
-| `/archive` | Debate Archive |
-| `/community` | Community Feed |
-| `/about` | How It Works |
-| `/profile` | User Profile |
-
-## 🤖 Adding New Agent Personas
-
-Edit [`src/lib/data.ts`](src/lib/data.ts) and add an entry to the `AGENTS` array:
-
-```typescript
-{
-  id: 'my-new-agent',
-  name: 'The Contrarian',
-  title: 'Professional Disagreer',
-  style: 'Opposes any position regardless of merit',
-  description: 'A full bio...',
-  color: 'orange', // or 'teal'
-  colorHex: '#FF6B35',
-  strengths: ['Creative opposition', 'Shock value'],
-  weaknesses: ['Consistency', 'Long debates'],
-  winRate: 55,
-  totalDebates: 0,
-  wins: 0,
-  losses: 0,
-  draws: 0,
-  elo: 1500,
-  specialty: ['Philosophy', 'Pop Culture'],
-  tone: 'aggressive',
-  avatar: '◈',
-  badges: [],
-}
-```
-
-## 📝 Adding New Topics
-
-Edit the `TOPICS` array in [`src/lib/data.ts`](src/lib/data.ts):
-
-```typescript
-{
-  id: 'my-topic',
-  title: 'Your debate topic here',
-  category: 'Tech', // See Category type
-  description: 'Brief description...',
-  tags: ['tag1', 'tag2'],
-  trending: false,
-  debates: 0,
-  difficulty: 'Medium', // Easy | Medium | Hard | Expert
-}
-```
-
-## 🔧 Integrating a Real LLM
-
-Replace the mock in [`src/app/api/debate/generate/route.ts`](src/app/api/debate/generate/route.ts) with real LLM calls:
-
-```typescript
-import OpenAI from 'openai'
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-
-// In the POST handler:
-const completion = await openai.chat.completions.create({
-  model: 'gpt-4o',
-  messages: [
-    { role: 'system', content: `You are ${agentPersona.name}. ${agentPersona.description}` },
-    { role: 'user', content: `Debate topic: "${topic}". Your turn: ${roundLabel}` },
-  ],
-  stream: true,
-})
-```
+---
 
 ## 🎨 Design System
 
-The project uses a custom Tailwind CSS configuration with the **Orange Arena** design tokens:
+The application relies heavily on a custom token-based design system called **Orange Arena**. 
+- **Primary Colors:** Neon Orange (`#FF6B35`) & Teal (`#2DD4BF`).
+- **Surface Materials:** Custom implementations of `glass` (blur + translucent borders) and `clay` (heavy drop shadows + inner highlights).
+- **Typography:** `Space Grotesk` (Headings) + `Inter` (Body).
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--color-primary` | `#FF6B35` | Brand orange |
-| `--color-agent-a` | `#FF6B35` | Debater A color |
-| `--color-agent-b` | `#2DD4BF` | Debater B color |
-| `--color-accent` | `#FFC857` | Highlights, badges |
-| `--color-bg-dark` | `#0B0B0F` | Dark background |
+---
 
-## 🛠️ Tech Stack
+## 📜 License
 
-- **Framework**: Next.js 14 (App Router) + TypeScript
-- **3D**: React Three Fiber + @react-three/drei + Three.js
-- **Animations**: Framer Motion + custom CSS keyframes
-- **Charts**: Recharts (radar + bar)
-- **Styling**: Tailwind CSS with custom tokens
-- **Icons**: Lucide React
-- **State**: React hooks + Zustand (ready)
-- **Hosting**: Vercel
+Distributed under the MIT License. See `LICENSE` for more information.
 
-## 📄 License
+---
 
-MIT — free to use, modify, and deploy.
+<div align="center">
+  <i>Built to push the boundaries of AI, Design, and 3D Web Experiences.</i>
+</div>

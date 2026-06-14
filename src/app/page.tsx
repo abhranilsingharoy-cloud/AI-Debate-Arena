@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Suspense, lazy } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Flame, Trophy, ChevronRight, TrendingUp, Zap, Users, BarChart3, Play, Star, ArrowRight } from 'lucide-react'
@@ -10,8 +10,9 @@ import AgentAvatar from '@/components/ui/AgentAvatar'
 import { AGENTS, TOPICS, PLATFORM_STATS } from '@/lib/data'
 import { formatNumber } from '@/lib/utils'
 
-const ArenaScene = lazy(() => import('@/components/3d/ArenaScene'))
+import dynamic from 'next/dynamic'
 
+const ArenaScene = dynamic(() => import('@/components/3d/ArenaScene'), { ssr: false })
 function StatTicker() {
   const [counts, setCounts] = useState({ debates: 0, votes: 0, users: 0, topics: 0 })
 
@@ -235,12 +236,12 @@ export default function HomePage() {
   const heroY = useTransform(scrollY, [0, 500], [0, -100])
   const heroOpacity = useTransform(scrollY, [0, 400], [1, 0])
   const [isClient, setIsClient] = useState(false)
+  const [reducedMotion, setReducedMotion] = useState(false)
 
-  useEffect(() => { setIsClient(true) }, [])
-
-  const reducedMotion = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false
+  useEffect(() => { 
+    setIsClient(true) 
+    setReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  }, [])
 
   return (
     <div className="page-wrapper">
