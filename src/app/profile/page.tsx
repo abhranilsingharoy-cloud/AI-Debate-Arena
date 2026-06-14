@@ -12,7 +12,7 @@ import Link from 'next/link'
 const USER_PROFILE = {
   username: 'DebateMaster',
   avatar: '🧑',
-  joined: 'January 2025',
+  joined: 'January 2026',
   debatesJudged: 47,
   agreementWithAI: 72,
   favoriteCategory: 'Technology',

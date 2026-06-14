@@ -101,7 +101,7 @@ export default function Footer() {
             </motion.a>
           </div>
           <p className="text-text-muted text-sm">
-            © 2025 AI Debate Arena. All rights reserved.
+            © 2026 AI Debate Arena. All rights reserved.
           </p>
         </div>
       </div>
