@@ -162,9 +162,9 @@ export interface Topic {
   difficulty: 'Easy' | 'Medium' | 'Hard' | 'Expert';
 }
 
-export type Category = 'Tech' | 'Politics' | 'Philosophy' | 'Science' | 'Pop Culture' | 'Ethics' | 'Sports' | 'Relationships';
+export type Category = 'Tech' | 'Politics' | 'Philosophy' | 'Science' | 'Pop Culture' | 'Ethics' | 'Sports' | 'Relationships' | 'Economics';
 
-export const CATEGORIES: Category[] = ['Tech', 'Politics', 'Philosophy', 'Science', 'Pop Culture', 'Ethics', 'Sports', 'Relationships'];
+export const CATEGORIES: Category[] = ['Tech', 'Politics', 'Philosophy', 'Science', 'Pop Culture', 'Ethics', 'Sports', 'Relationships', 'Economics'];
 
 export const TOPICS: Topic[] = [
   { id: 't1', title: 'AI will replace human creativity within 10 years', category: 'Tech', description: 'Explore whether AI art, writing, and music signal the end of human creative supremacy.', tags: ['AI', 'creativity', 'future'], trending: true, debates: 1847, difficulty: 'Medium' },
