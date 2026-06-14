@@ -62,7 +62,7 @@ export default function GlassCard({
         className
       )}
       {...animateProps}
-      {...props}
+      {...(props as any)}
     >
       {children}
     </Comp>
