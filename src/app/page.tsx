@@ -283,7 +283,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-none mb-6"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-bold leading-none mb-6"
           >
             <span className="gradient-text-arena">AI Debate</span>
             <br />
@@ -294,25 +294,25 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
           >
             Two AI titans enter. One leaves victorious.
-            <span className="text-text-primary"> You are the judge.</span>
+            <span className="text-text-primary block sm:inline"> You are the judge.</span>
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto"
           >
-            <Link href="/create">
-              <ClayButton size="xl" glow icon={<Zap className="w-5 h-5" />}>
+            <Link href="/create" className="w-full sm:w-auto">
+              <ClayButton size="xl" glow icon={<Zap className="w-5 h-5" />} className="w-full sm:w-auto">
                 Enter the Arena
               </ClayButton>
             </Link>
-            <Link href="/topics">
-              <ClayButton size="xl" variant="secondary" icon={<Play className="w-5 h-5" />}>
+            <Link href="/topics" className="w-full sm:w-auto">
+              <ClayButton size="xl" variant="secondary" icon={<Play className="w-5 h-5" />} className="w-full sm:w-auto">
                 Browse Topics
               </ClayButton>
             </Link>
@@ -369,8 +369,8 @@ export default function HomePage() {
               The arena awaits. Thousands of debates have already been decided.
               This one needs your verdict.
             </p>
-            <Link href="/create">
-              <ClayButton size="xl" glow icon={<ChevronRight className="w-6 h-6" />} iconPosition="right">
+            <Link href="/create" className="inline-block w-full sm:w-auto">
+              <ClayButton size="xl" glow icon={<ChevronRight className="w-6 h-6" />} iconPosition="right" className="w-full sm:w-auto">
                 Start Your First Debate
               </ClayButton>
             </Link>
